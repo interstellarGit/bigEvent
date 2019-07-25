@@ -403,13 +403,14 @@
             <span class="first">
             {{else if $index == 1}}
             <span class="second">
-            {{else id $index == 2}}
+            {{else if $index == 2}}
             <span class="third">
             {{else}}
             <span>
             {{/if}}
 
                 {{$index + 1}}
+            
             </span>
             
             <a href="./detail.html?id={{$value.id}}">{{$value.title}}</a>
