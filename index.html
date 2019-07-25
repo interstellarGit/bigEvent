@@ -5,8 +5,9 @@
 
 <!-- 
 
-        大事件 - index - 首页 - 练习版
-
+        大事件 
+        
+            - index - 首页 - 练习版
 
 -->
 
@@ -45,21 +46,29 @@
                 <a href="javascript:;" class="level_one"><i class="fa fa-list-ul"></i>全部分类</a>
                 <ul class="level_two">
                     <li class="up"></li>
-                    <li><a href="#">最 新</a></li>
+
+                    <!-- 这里是 下拉菜单的分类 -->
+
+                    <!-- <li><a href="#">最 新</a></li>
                     <li><a href="#">科 技</a></li>
                     <li><a href="#">股 市</a></li>
                     <li><a href="#">商 品</a></li>
                     <li><a href="#">外 汇</a></li>
-                    <li><a href="#">公 司</a></li>
+                    <li><a href="#">公 司</a></li> -->
+
                 </ul>
             </div>
             <ul class="left_menu fl">
-                <li><a href="#">最 新</a></li>
+
+                <!-- 这里是 横向显示的分类 -->
+
+                <!-- <li><a href="#">最 新</a></li>
                 <li><a href="#">科 技</a></li>
                 <li><a href="#">股 市</a></li>
                 <li><a href="#">商 品</a></li>
                 <li><a href="#">外 汇</a></li>
-                <li><a href="#">公 司</a></li>
+                <li><a href="#">公 司</a></li> -->
+
             </ul>
             <ul class="right_menu fr">
                 <li><a href="#">科技专题</a></li>
@@ -71,7 +80,10 @@
     <div class="main_con clearfix">
         <div class="left_con">
             <ul class="focus_list">
-                <li class="first">
+
+                <!-- 这里放 焦点图 -->
+
+                <!-- <li class="first">
                     <a href="#"><img src="assets/images/pic01.jpg" alt=""></a>
                     <p>图片说明</p>
                 </li>
@@ -90,7 +102,7 @@
                 <li>
                     <a href="#"><img src="assets/images/pic06.jpg" alt=""></a>
                     <p>图片说明</p>
-                </li>
+                </li> -->
             </ul>
 
             <div class="common_title">
@@ -98,7 +110,9 @@
                 <a href="#" class="more"><i class="fa fa-angle-double-right"></i></a>
             </div>
 
-            <div class="common_news_list">
+            <!-- 这里放 最新咨询 -->
+
+            <!-- <div class="common_news_list">
                 <a href="#" class="list_pic"><img src="assets/images/pic09.jpg" alt=""></a>
                 <h4><a href="#">亚马逊金融试水中国？背后却是和华尔街的“金融战争” </a></h4>
                 <p>亚马逊抛弃了中国的买家们，却难以割舍庞大的卖家市场，有消息指出亚马逊中国将针对中国庞大的卖家群体推出一项贷款推荐计划。在连续对印度、墨西哥等新兴市场大力推广线上支付服务后，亚马逊金融试水进军中国市场的信号终于被放出。
@@ -156,20 +170,24 @@
                         )&nbsp;&nbsp;&nbsp;<i class="fa fa-commenting"></i>&nbsp;评论( 10 )</span>
                     <b>发布于 2018-08-30 12:18:58</b>
                 </div>
-            </div>
+            </div> -->
 
         </div>
         <div class="right_con">
             <div class="common_wrap">
                 <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
                 <ul class="content_list">
-                    <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
+
+                    <!-- 这里放 一周热门排行 -->
+
+                    <!-- <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
                     <li><span class="second">2</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span class="third">3</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span>4</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span>5</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span>6</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                    <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li> -->
+
                 </ul>
             </div>
             <div class="common_wrap">
@@ -235,6 +253,190 @@
         <p>CopyRight © 2019 深圳大事件信息技术股份有限公司 All Rights Reserved</p>
         <p>电话：0755-****888 粤ICP备*******8号</p>
     </div>
+
+
+
+
+    <!-- 引入 jQuery 文件 -->
+    <script src="./assets/js/jquery-1.12.4.min.js"></script>
+    <!-- 引入 模板引擎 -->
+    <script src="./assets/js/template-web.js"></script>
+
+    <!-- ////////////////////////////////////////////////////////////////// -->
+    <!-- 【1.】 设置 导航栏 - 【下拉 和 横向】 里面的a标签内容
+            - 俗话解释：点哪个a就跳转到目标页面 且 本页面显示内容也跟着变-->
+    <!--      [ category - 分类；种类 ] -->
+    <script id="category" type="text/html">
+        <!-- 因为有很多项，所以用 模板引擎 并 each 循环遍历 -->
+        <!-- 此处"arr" : 为自定义属性名，一个数组的名字，需要与下面的对应  -->
+        {{each arr}}
+        <li><a href="./list.html?id={{$value.id}}">{{$value.name}}</a></li>
+        {{/each}}
+    </script>
+
+    <!-- 【2.】 获取 导航条 的所有分类 -->
+    <script>
+        // 用 jQuery 提供的快捷方法 发送GET方式的请求
+        // $.get(请求的url, [发送给服务器的参数], [处理服务器返回结果的函数], [预期服务器返回数据的类型]);
+        // 接口 - /getCategory - 返回所有分类
+        $.get('/getCategory', function (res) {
+            // console.log(res);    - 查看返回结果
+
+            // 使用模板引擎将数据显示到页面中
+            // 调用template函数（两个参数，一个返回值）
+            // 函数有两个参数
+            //    参数1 ： 模板的id   ->  (id名与上面自定义的模板名字相对应)
+            //    参数2 : JS对象，表示模板中使用的数据
+            // 函数有一个返回值，返回值就是数据和模板组合的结果 -> (var str = )
+            var str = template('category', {
+
+                // 自定义属性名：值->(对应的函数参数自定义的名字)
+                arr: res
+            });
+            // 把得的返回值结果(var str = ) 【追加到】 ul.level_two 里面；并且还要【放到】 ul.left_menu 里面
+            // append() 方法在被选元素的结尾插入指定内容
+            $('ul.level_two').append(str);
+            $('ul.left_menu').html(str);
+        }, 'json');
+
+    </script>
+
+
+
+
+    <!-- ////////////////////////////////////////////////////////////////// -->
+    <!-- 【1.】 设置 焦点图 部分的模板引擎 -->
+    <script id="jiaodian" type="text/html">
+        {{each arr}}
+        <!-- 因为第一个焦点图大，其他相同，所以第一个焦点图单独设置 -->
+        {{if $index == 0}}
+        <li class = "first" > 
+        {{else}}
+        <li>
+        {{/if}}
+            <!-- 设置 a连接 和 img  -->
+            <a href="./detail.html?id={{$value.id}}"><img src="{{$value.file}}" alt=""></a>
+            <p>{{$value.title}}</p>
+        </li>
+        {{/each}}
+    </script>
+
+    <!-- 【2.】 获取5个 焦点图片 -->
+    <script>
+        // 接口 - /getArticles - 根据请求参数获取对应的文章； 参数flag:'good' 表示焦点图
+        $.get('/getArticles', { flag: 'good' }, function (res) {
+            // console.log(res);    - 查看返回结果; 或用 postman 调接口查看
+            // 如果响应成功
+            if (res.code == 200) {
+                // 调用template函数（两个参数，一个返回值）
+                // 函数有两个参数
+                //    参数1 ： 模板的id   ->  (id名与上面自定义的模板名字相对应)
+                //    参数2 : JS对象，表示模板中使用的数据
+                // 函数有一个返回值，返回值就是数据和模板组合的结果 -> (var str = )
+                var str = template('jiaodian', {
+                    arr: res.data
+                });
+                // 把组合好的结果【放到】 ul.focus_list 里面
+                $('ul.focus_list').html(str);
+            }
+        }, 'json');
+    </script>
+
+
+
+
+    <!-- ////////////////////////////////////////////////////////////////// -->
+    <!-- 【1.】 设置 最新资讯 部分的模板引擎 -->
+    <script id="zixun" type="text/html">
+        {{each abc}}
+        <div class="common_news_list">
+                <!-- 设置 a链接 和 img  -->
+                <a href="./detail.html?id={{$value.id}}" class="list_pic"><img src="{{$value.file}}" alt=""></a>
+                <!-- 此处 a链接 和上面的一样 -->
+                <h4><a href="./detail.html?id={{$value.id}}">{{$value.title}}</a></h4>
+                <p>
+                    {{$value.desc}}
+                </p>
+                <div class="new_info">
+                                    <!-- 此处的阅读数量，就是用户的点击次数 -->
+                    <i class="fa fa-eye"></i>&nbsp;阅读({{$value.click}})&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-commenting"></i>&nbsp;评论( 10 )</span>
+                    <b>发布于 {{$value.addtime}}</b>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+
+    <!-- 【2.】 获取 最新咨询的 5篇文章 -->
+    <script>
+        // 接口 - /getArticles - 根据请求参数获取对应的文章； 参数flag:'id' 表示最新发布(咨询)
+        $.get('/getArticles', { flag: 'id' }, function (res) {
+            console.log(res);
+            // 如果响应成功
+            if (res.code == 200) {
+                // 调用template函数（两个参数，一个返回值）
+                // 函数有两个参数
+                //    参数1 ： 模板的id   ->  (id名与上面自定义的模板名字相对应)
+                //    参数2 : JS对象，表示模板中使用的数据
+                // 函数有一个返回值，返回值就是数据和模板组合的结果 -> (var str = )
+                var str = template('zixun', {
+                    abc: res.data
+                })
+                // 把返回值【追加】到 div.left_con 里面
+                // append() 方法在被选元素的结尾插入指定内容
+                $('.left_con').append(str);
+            }
+        }, 'json');
+    </script>
+
+
+
+
+    <!-- ////////////////////////////////////////////////////////////////// -->
+    <!-- 【1.】 设置 一周热门排行  部分的模板引擎 -->
+    <script id="remen" type="text/html">
+
+        <!-- 因为前3个li 有单独类名,所以用if 和 索引值 判断区分 -->
+        {{each arr}}
+        <li>
+            {{if  $index == 0}}
+            <span class="first">
+            {{else if $index == 1}}
+            <span class="second">
+            {{else id $index == 2}}
+            <span class="third">
+            {{else}}
+            <span>
+            {{/if}}
+
+                {{$index + 1}}
+            </span>
+            
+            <a href="./detail.html?id={{$value.id}}">{{$value.title}}</a>
+        </li>
+        {{/each}}
+    </script>
+
+    <!-- 【2.】 获取 一周热门排行 的数据 -->
+    <script>
+        // 接口 - /getArticles - 参数 flag: "click" 表示获取热门排行； num：7 代表获取文章数量 7 ；
+        $.get('/getArticles', { flag: "click", num: 7 }, function (res) {
+            console.log(res);
+
+            // 调用template函数（两个参数，一个返回值）
+            // 函数有两个参数
+            //    参数1 ： 模板的id   ->  (id名与上面自定义的模板名字相对应)
+            //    参数2 : JS对象，表示模板中使用的数据
+            // 函数有一个返回值，返回值就是数据和模板组合的结果 -> (var str = )
+            var str = template('remen', {
+                arr: res.data
+            });
+
+            // 数据存在ul中，类是 content_list,但是叫这个类的ul有3个，所以我们找第一个，放进去
+            // eq() 方法返回带有被选元素的指定索引号的元素。索引值从 0 开始
+            $('ul.content_list').eq(0).html(str);
+        }, 'json');
+    </script>
 
 </body>
 
